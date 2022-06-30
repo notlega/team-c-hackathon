@@ -5,6 +5,11 @@ const recipeFlows = require('../model/recipe_flows.js');
 const processSteps = require('../model/process_steps.js');
 const app = express();
 
+const cors = require('cors');
+const { type } = require('express/lib/response');
+app.options('*', cors());
+app.use(cors());
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

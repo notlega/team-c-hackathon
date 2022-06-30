@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import Charts from "react-apexcharts";
+import logTimes from '../db/log_times';
+
+console.log(logTimes.logTimesRows);
 
 class BarChart extends Component {
     constructor(props) {
