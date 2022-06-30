@@ -7,7 +7,7 @@ module.exports = {
             if (error) {
                 callback(error, null);
             } else {
-                const getAllLogTimesQuery = `SELECT * FROM log_times`;
+                const getAllLogTimesQuery = `SELECT * FROM "APTD".log_times;`;
                 client.query(getAllLogTimesQuery, (error, results) => {
                     done();
                     if (error) {

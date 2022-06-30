@@ -8,7 +8,6 @@ app.use(express.urlencoded({ extended: false }));
 app.get("/log_times", (req, res) => {
     logTimes.getAllLogTimes((error, findAllLogTimes) => {
         if (error) {
-            console.log(error)
             res.status(500).send(error);
         } else {
             res.status(200).json(findAllLogTimes);

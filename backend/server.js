@@ -1,4 +1,3 @@
-const req = require('express/lib/request');
 const app = require('./controller/app');
 const port = 8081;
 
