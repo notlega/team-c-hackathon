@@ -21,7 +21,7 @@ class BarChart extends Component {
                 data: [9, 7, 5, 8, 6, 9, 4]
             }, {
                 name: 'Reborn Kid',
-                data: [25, 12, 19, 32, 25, 24, 10]
+                data: [25, 12, 19, 32, 25, 24, 11]
             }],
             options: {
                 chart: {
