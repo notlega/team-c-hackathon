@@ -3,13 +3,13 @@ const db = require('./databaseConfig');
 module.exports = {
 
     getAllRecipeFlows: (callback) => {
-        db.connect((error, client, done) => {
+        db.connect((error, client, release) => {
             if (error) {
                 return callback(error, null);
             } else {
                 const getAllRecipeFlowsQuery = `SELECT * FROM "APTD".recipe_flows;`;
                 client.query(getAllRecipeFlowsQuery, (error, results) => {
-                    done();
+                    release();
                     if (error) {
                         return callback(error, null);
                     } else {
