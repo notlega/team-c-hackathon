@@ -1,5 +1,5 @@
 const express = require('express');
-const logTimes = require('../model/logTimes.js');
+const logTimes = require('../model/log_times.js');
 const recipes = require('../model/recipes.js');
 const recipeFlows = require('../model/recipe_flows.js');
 const processSteps = require('../model/process_steps.js');
