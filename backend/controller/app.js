@@ -1,8 +1,8 @@
 const express = require('express');
-const logTimes = require('../model/log_times.js');
-const recipes = require('../model/recipes.js');
-const recipeFlows = require('../model/recipe_flows.js');
-const processSteps = require('../model/process_steps.js');
+const logTimes = require('../model/LogTimes.js');
+const recipes = require('../model/Recipes.js');
+const recipeFlows = require('../model/RecipeFlows.js');
+const processSteps = require('../model/ProcessSteps.js');
 const app = express();
 
 const cors = require('cors');
