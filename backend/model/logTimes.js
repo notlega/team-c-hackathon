@@ -5,15 +5,15 @@ module.exports = {
     getAllLogTimes: (callback) => {
         db.connect((error, client, done) => {
             if (error) {
-                callback(error, null);
+                return callback(error, null);
             } else {
                 const getAllLogTimesQuery = `SELECT * FROM "APTD".log_times;`;
                 client.query(getAllLogTimesQuery, (error, results) => {
                     done();
                     if (error) {
-                        callback(error, null);
+                        return callback(error, null);
                     } else {
-                        callback(null, results);
+                        return callback(null, results);
                     }
                 });
             }
