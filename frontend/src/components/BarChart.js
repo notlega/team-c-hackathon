@@ -1,22 +1,5 @@
 import React, { Component } from "react";
 import Charts from "react-apexcharts";
-import axios from "axios";
-
-var logTimes;
-var processSteps;
-var recipeFlows;
-var recipes;
-
-axios.get(`${window.location.href.slice(0, -5)}8081/log_times/`)
-    .then(response => { logTimes = response.data })
-    .catch(error => { console.log(error) });
-axios.get(`${window.location.href.slice(0, -5)}8081/process_steps/`)
-    .then((response) => { console.log(response.data); processSteps = response.data })
-    .catch(error => { console.log(error) });
-axios.get(`${window.location.href.slice(0, -5)}8081/recipe_flows/`).then(response => { recipeFlows = response.data.rows }).catch(error => { console.log(error) });
-axios.get(`${window.location.href.slice(0, -5)}8081/recipes/`).then(response => { recipes = response.data.rows }).catch(error => { console.log(error) });
-
-console.log(logTimes);
 
 class BarChart extends Component {
     constructor(props) {
@@ -88,14 +71,14 @@ class BarChart extends Component {
                 }
             },
         };
+    }
 
-
+    render() {
         return (
             <div id="barChart" >
                 <Charts options={this.state.options} series={this.state.series} type="bar" height={350} />
             </div>
         );
-
     }
 }
 
