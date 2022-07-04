@@ -2,21 +2,9 @@ const db = require('./databaseConfig');
 
 module.exports = {
 
-    getAllRecipes: (callback) => {
-        db.connect((error, client, release) => {
-            if (error) {
-                return callback(error, null);
-            } else {
-                const getAllRecipesQuery = `SELECT * FROM "APTD".recipes;`;
-                client.query(getAllRecipesQuery, (error, results) => {
-                    release();
-                    if (error) {
-                        return callback(error, null);
-                    } else {
-                        return callback(null, results);
-                    }
-                });
-            }
-        })
+    getAllRecipes: async () => {
+        const getAllRecipesQuery = `SELECT * FROM "APTD".recipes;`;
+        const results = await db.query(getAllRecipesQuery);
+        return results;
     }
 }

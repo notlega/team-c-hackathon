@@ -5,52 +5,43 @@ const recipeFlows = require('../model/RecipeFlows.js');
 const processSteps = require('../model/ProcessSteps.js');
 const app = express();
 
-const cors = require('cors');
-const { type } = require('express/lib/response');
-app.options('*', cors());
-app.use(cors());
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.get("/log_times", (req, res) => {
-    logTimes.getAllLogTimes((error, findAllLogTimes) => {
-        if (error) {
-            res.status(500).send(error);
-        } else {
-            res.status(200).json(findAllLogTimes);
-        }
-    })
+app.get("/log_times/", async (req, res) => {
+    try {
+        const data = await logTimes.getAllLogTimes();
+        res.json(data);
+    } catch (error) {
+        res.status(500).json(error);
+    }
 })
 
-app.get("/recipes", (req, res) => {
-    recipes.getAllRecipes((error, findAllRecipes) => {
-        if (error) {
-            res.status(500).send(error);
-        } else {
-            res.status(200).json(findAllRecipes);
-        }
-    })
+app.get("/recipes/", async (req, res) => {
+    try {
+        const data = await logTimes.getAllLogTimes();
+        res.json(data);
+    } catch (error) {
+        res.status(500).json(error);
+    }
 })
 
-app.get("/recipe_flows", (req, res) => {
-    recipeFlows.getAllRecipeFlows((error, findAllRecipeFlows) => {
-        if (error) {
-            res.status(500).send(error);
-        } else {
-            res.status(200).json(findAllRecipeFlows);
-        }
-    })
+app.get("/recipe_flows/", async (req, res) => {
+    try {
+        const data = await recipeFlows.getAllRecipeFlows();
+        res.json(data);
+    } catch (error) {
+        res.status(500).json(error);
+    }
 })
 
-app.get("/process_steps", (req, res) => {
-    processSteps.getAllProcessSteps((error, findAllProcessSteps) => {
-        if (error) {
-            res.status(500).send(error);
-        } else {
-            res.status(200).json(findAllProcessSteps);
-        }
-    })
+app.get("/process_steps/", async (req, res) => {
+    try {
+        const data = await processSteps.getAllProcessSteps();
+        res.json(data);
+    } catch (error) {
+        res.status(500).json(error);
+    }
 })
 
 module.exports = app;
